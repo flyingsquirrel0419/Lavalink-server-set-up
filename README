@@ -1,0 +1,19 @@
+# 애플리케이션 안내 / Application Guide
+
+## 한국어
+
+이 애플리케이션은 사용자가 지정한 포트에서 실행됩니다.  
+사용 전 반드시 `application.yml` 파일 내의 `PORT`와 `REFRESH_TOKEN` 값을 자신의 환경에 맞게 변경하세요.
+
+Lavalink 서버를 사용하려면, 최신 Lavalink `.jar` 파일을 [공식 GitHub 릴리즈 페이지](https://github.com/freyacodes/Lavalink/releases)에서 다운로드 받아야 합니다.  
+다운로드 후 원하는 위치에 두고 애플리케이션에서 해당 경로를 참조하도록 설정하세요.
+
+---
+
+## English
+
+This application runs on the port specified by the user.  
+Before using it, make sure to update the `PORT` and `REFRESH_TOKEN` values in the `application.yml` file according to your environment.
+
+To use the Lavalink server, download the latest Lavalink `.jar` file from the [official GitHub releases page](https://github.com/freyacodes/Lavalink/releases).  
+Place it in a desired location and configure the application to reference its path.
