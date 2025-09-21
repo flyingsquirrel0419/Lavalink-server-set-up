@@ -1,0 +1,111 @@
+server:
+  port: your_port          # 원하시는 포트 번호로 변경
+  address: 0.0.0.0
+spring:
+  main:
+    banner-mode: log
+lavalink:
+  server:
+    password: "youshallnotpass"
+    sources:
+      youtube: false
+      bandcamp: true
+      soundcloud: true
+      twitch: true
+      vimeo: true
+      http: true
+      local: false
+    filters:
+      volume: true
+      equalizer: true
+      karaoke: true
+      timescale: true
+      tremolo: true
+      vibrato: true
+      distortion: true
+      rotation: true
+      channelMix: true
+      lowPass: true
+    bufferDurationMs: 400
+    frameBufferDurationMs: 5000
+    youtubePlaylistLoadLimit: 6
+    playerUpdateInterval: 5
+    youtubeSearchEnabled: true
+    soundcloudSearchEnabled: true
+    gc-warnings: true
+  plugins:
+    - dependency: "dev.lavalink.youtube:youtube-plugin:1.13.4"
+      repository: "https://maven.lavalink.dev/releases"
+    - dependency: "com.github.topi314.lavasrc:lavasrc-plugin:4.3.0"
+      repository: "https://maven.lavalink.dev/releases"
+plugins:
+  youtube:
+    enabled: true
+    allowSearch: true
+    allowDirectVideoIds: true
+    allowDirectPlaylistIds: true
+    clients:
+      - WEB
+      - ANDROID_MUSIC
+      - MUSIC
+      - TVHTML5EMBEDDED
+      - ANDROID_VR
+    clientOptions:
+      WEB:
+        playback: true
+      MUSIC:
+        playback: true
+      ANDROID_MUSIC:
+        playback: true
+      TVHTML5EMBEDDED:
+        playback: true
+      ANDROID_VR:
+        playback: true
+    oauth:
+      enabled: true
+      refreshtoken: "your_youtube_refresh_token"  # 여기에 바꿔주세요
+    skipInitialization: false
+    pot:
+      token: ""
+      visitorData: ""
+    countryCode: "KR"
+  lavasrc:
+    providers:
+      - "ytsearch:\"%ISRC%\""
+      - "ytsearch:%QUERY%"
+      - "scsearch:%QUERY%"
+    sources:
+      spotify: false
+      youtube: true
+    spotify:
+      clientId: ""
+      clientSecret: ""
+      spDc: ""
+      countryCode: "YOUR_COUNTRY"
+      playlistLoadLimit: 6
+      albumLoadLimit: 6
+metrics:
+  prometheus:
+    enabled: false
+    endpoint: /metrics
+sentry:
+  dsn: ""
+  environment: ""
+logging:
+  file:
+    path: ./logs/
+  level:
+    root: INFO
+    lavalink: INFO
+    dev.lavalink.youtube: INFO
+  request:
+    enabled: true
+    includeClientInfo: true
+    includeHeaders: false
+    includeQueryString: true
+    includePayload: true
+    maxPayloadLength: 10000
+  logback:
+    rollingpolicy:
+      max-file-size: 1GB
+      max-history: 30
